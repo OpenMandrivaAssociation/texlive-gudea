@@ -3,7 +3,7 @@ Version:	57359
 Release:	2
 Summary:	The Gudea font face with support for LaTeX and pdfLaTeX
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/gudea
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/gudea
 License:	ofl lppl
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/gudea.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/gudea.doc.r%{version}.tar.xz

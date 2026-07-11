@@ -1,41 +1,21 @@
-Name:		texlive-gudea
-Version:	57359
-Release:	2
+%global tl_name gudea
+%global tl_revision 78931
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	0.0.1
+Release:	%{tl_revision}.1
 Summary:	The Gudea font face with support for LaTeX and pdfLaTeX
 Group:		Publishing
-URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/gudea
+URL:		https://www.ctan.org/tex-archive/fonts/gudea
 License:	ofl lppl
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/gudea.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/gudea.doc.r%{version}.tar.xz
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/gudea.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/gudea.doc.r%{tl_revision}.tar.xz
 BuildArch:	noarch
-BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+BuildSystem:	texlive
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-This package provides the Gudea family of fonts designed by
-Agustina Mingote, with support for LaTeX and pdfLaTeX.
+This package provides the Gudea family of fonts designed by Agustina
+Mingote, with support for LaTeX and pdfLaTeX.
 
-%prep
-%autosetup -p1 -c -a1
-
-%build
-
-%install
-rm -rf tlpkg
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -a * %{buildroot}%{_texmfdistdir}
-
-%files
-%{_texmfdistdir}/tex/latex/gudea
-%{_texmfdistdir}/fonts/vf/public/gudea
-%{_texmfdistdir}/fonts/type1/public/gudea
-%{_texmfdistdir}/fonts/tfm/public/gudea
-%{_texmfdistdir}/fonts/map/dvips/gudea
-%{_texmfdistdir}/fonts/enc/dvips/gudea
-%doc %{_texmfdistdir}/doc/fonts/gudea
-
-%post -p %{_sbindir}/texlive.post
-
-%postun
-[ "$1" -eq 0 ] && %{_sbindir}/texlive.post
